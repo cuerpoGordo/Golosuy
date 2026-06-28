@@ -23,6 +23,7 @@ function loadDevHttps() {
 const devHttps = loadDevHttps()
 
 export default defineConfig({
+  base: process.env.VITE_BASE_PATH ?? '/',
   plugins: [
     react(),
     tailwindcss(),
@@ -38,10 +39,10 @@ export default defineConfig({
         background_color: '#0f172a',
         display: 'standalone',
         lang: 'ru',
-        start_url: '/',
+        start_url: '.',
         icons: [
           {
-            src: '/icons.svg',
+            src: 'icons.svg',
             sizes: 'any',
             type: 'image/svg+xml',
             purpose: 'any maskable',
