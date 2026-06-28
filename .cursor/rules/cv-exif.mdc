@@ -1,0 +1,20 @@
+---
+description: Canvas и EXIF в Golosuy
+globs: "src/lib/**/*"
+alwaysApply: false
+---
+
+# Canvas
+
+- `canvas.toBlob('image/jpeg', 0.92)` для экспорта.
+- Отметка рисуется в координатах исходного кадра.
+
+# EXIF
+
+- Извлечение: `piexif.load(arrayBuffer)` при загрузке файла.
+- Вставка: `piexif.insert(exifBytes, jpegBytes)` — байты EXIF не парсить и не менять.
+- Unit-тесты сравнивают теги до/после экспорта.
+
+# Тесты
+
+- Фикстуры JPEG — в `src/lib/**/__fixtures__/`.

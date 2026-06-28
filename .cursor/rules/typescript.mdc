@@ -1,0 +1,33 @@
+---
+description: TypeScript и структура модулей Golosuy
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# TypeScript
+
+- Экспортировать явные типы для публичных API (`Checkbox`, `BBox`, `PipelineState`).
+- Использовать `type` для union/объектов, `interface` для расширяемых контрактов.
+- Предпочитать `unknown` + type guard вместо `any`.
+
+```typescript
+// ❌ BAD
+catch (e: any) { console.log(e) }
+
+// ✅ GOOD
+catch (e) {
+  const message = e instanceof Error ? e.message : 'Неизвестная ошибка'
+  setError(message)
+}
+```
+
+## Импорты
+
+- Алиас `@/` для `src/`.
+- CV/EXIF/render — без импортов из `react`.
+
+## Именование
+
+- `camelCase` — функции, переменные.
+- `PascalCase` — компоненты, типы.
+- Файлы компонентов: `CameraCapture.tsx`; утилиты: `documentDetect.ts`.
